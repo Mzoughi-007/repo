@@ -1,0 +1,32 @@
+<form action="{{ path('author_interval') }}" method="GET">
+    <label for="min">Minimum Number of Books:</label>
+    <input id="min" name="min" type="number" required>
+
+    <label for="max">Maximum Number of Books:</label>
+    <input id="max" name="max" type="number" required>
+
+    <input type="submit" value="Filter">
+</form>
+
+<table border='1'>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Number of Books</th>
+        <th>Details</th>
+    </tr>
+    {% for author in list %}
+    <tr>
+        <td>{{ author.id }}</td> 
+        <td>{{ author.username }}</td>
+        <td>{{ author.emailaddress }}</td>
+        <td>{{ author.nbbooks }}</td>
+        <td><a href="{{ path('author_details2', {'id': author.id}) }}">link</a></td> 
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="5">No authors found in this interval.</td>
+    </tr>
+    {% endfor %}
+</table>

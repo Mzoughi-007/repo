@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FirstController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: white; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Welcome to your {{ controller_name }}! ✅</h1> 
+    <h3>Hello {{ name ~ last_name}} </h3> 
+    
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>C:/Users/MlleM/Documents/projet_web/my_project/src/Controller/FirstController.php</code></li>
+        <li>Your template at <code>C:/Users/MlleM/Documents/projet_web/my_project/templates/first/index.html.twig</code></li>
+    </ul>
+    {{'this string'}}
+    {# this is a comment #}
+    <br>
+    {% set T=[1,2,3] %}
+    {{ T[0] ~ T[1] ~ T[2] }}
+    <br>
+    {% if 'Chiraz' starts with 'C' %}
+        <p> your name starts with letter C</p>
+    {% endif %}
+
+    {% if 3 not in T %}
+        <p> 10 is missing </p>
+        {%elseif 3 in T%}
+        <p>Exists</p>
+    {%endif%}
+    <h4>Your table</f4>
+    {% for x in T%}
+    {{x}}
+    {% endfor %}
+    <br>
+    <h5>table 2:</f5>
+    <br>
+    {% for x in range(0,9) %}
+    {{x}}
+    {% endfor %}
+    {{ 'chiraz'| capitalize }}<br>
+    {{ 'chiraz' | upper}}<br>
+    {{ 'CHIRAZ' | lower}}<br>
+    {{ '    lorem ipsum hftyf gyfgd fv hgyuua azeeaz dfsd yyfd . fgygdef fef    ' | trim | upper}}<br><br>
+    {{ 'now' | date('Y/M/d')}}<br><br><br>
+    {{ 'now' |  date_modify  ('+1 day') | date('Y/M/d')}}<br><br><br>
+</div>
+{% endblock %}
